@@ -6,19 +6,25 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    
+    
+    @StateObject private var mapVM = MapViewModel()
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            MKMapRep(mapVM: mapVM)
+                .ignoresSafeArea()
         }
-        .padding()
+        
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View{
+        ContentView()
+    }
 }
