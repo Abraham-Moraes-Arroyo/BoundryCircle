@@ -16,6 +16,7 @@
 		854593A32B9CD503004B31A0 /* BoundryCircleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854593A22B9CD503004B31A0 /* BoundryCircleUITestsLaunchTests.swift */; };
 		854593B12B9CD53D004B31A0 /* MKMapRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854593B02B9CD53D004B31A0 /* MKMapRep.swift */; };
 		854593B32B9CD5D8004B31A0 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854593B22B9CD5D8004B31A0 /* MapViewModel.swift */; };
+		854593B52B9D166E004B31A0 /* DragAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854593B42B9D166E004B31A0 /* DragAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		854593A22B9CD503004B31A0 /* BoundryCircleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundryCircleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		854593B02B9CD53D004B31A0 /* MKMapRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapRep.swift; sourceTree = "<group>"; };
 		854593B22B9CD5D8004B31A0 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		854593B42B9D166E004B31A0 /* DragAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				854593B02B9CD53D004B31A0 /* MKMapRep.swift */,
 				854593B22B9CD5D8004B31A0 /* MapViewModel.swift */,
+				854593B42B9D166E004B31A0 /* DragAnnotation.swift */,
 			);
 			path = MapKit;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				854593882B9CD501004B31A0 /* ContentView.swift in Sources */,
+				854593B52B9D166E004B31A0 /* DragAnnotation.swift in Sources */,
 				854593B12B9CD53D004B31A0 /* MKMapRep.swift in Sources */,
 				854593862B9CD501004B31A0 /* BoundryCircleApp.swift in Sources */,
 				854593B32B9CD5D8004B31A0 /* MapViewModel.swift in Sources */,

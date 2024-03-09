@@ -14,17 +14,23 @@ final class MapViewModel: NSObject, ObservableObject {
     //where the map is going to be focused
     @Published var mapRegion : MKCoordinateRegion = .init(center: .init(latitude: 38.89897,
                                                                         longitude: -77.02791), span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2))
-    
+    @Published var alertOutBounds = false
     
 }
 
 extension MapViewModel: MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fronOldState oldState: MKAnnotationView.DragState) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        
+        if let dragAnnotation = view.annotation as? DragAnnotation, let circle = mapView.overlays.first as? MKCircle, !(newState.rawValue == 4){
+            if dragAnnotation.isOutOfBounds(from: circle){
+                alertOutBounds = true
+            }
+        }
         
     }
     
-    func mapView(_ mapView: MKMapView, renderedFor overlay: MKOverlay) -> MKOverlayRenderer{
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
         
         if overlay is MKCircle {
             let boundCircle = MKCircleRenderer(overlay: overlay)
@@ -35,6 +41,17 @@ extension MapViewModel: MKMapViewDelegate {
         }
         
         return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is DragAnnotation {
+            let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+            marker.markerTintColor = .orange
+            marker.isDraggable = true
+            return marker
+        }
+        
+        return nil
     }
     
 }

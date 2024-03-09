@@ -20,9 +20,12 @@ struct MKMapRep: UIViewRepresentable{
         
         mapView.delegate = context.coordinator
         
-        let circle = MKCircle(center: mapView.region.center, radius: 1000)
-        mapView.setVisibleMapRect(circle.boundingMapRect, edgePadding: .init(top: 30, left: 100, bottom: 20, right: 100), animated: true)
+        let circle = MKCircle(center: context.coordinator.mapRegion.center, radius: 15000)
+        mapView.setVisibleMapRect(circle.boundingMapRect, edgePadding: .init(top: 30, left: 50, bottom: 20, right: 50), animated: true)
         mapView.addOverlay(circle)
+        
+        let dragAnnotation = DragAnnotation(title: "Drag Me!!!", coordinate: context.coordinator.mapRegion.center)
+        mapView.addAnnotation(dragAnnotation)
             
         return mapView
         
