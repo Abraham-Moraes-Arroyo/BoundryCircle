@@ -22,9 +22,10 @@ extension MapViewModel: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
         
-        if let dragAnnotation = view.annotation as? DragAnnotation, let circle = mapView.overlays.first as? MKCircle, !(newState.rawValue == 4){
+        if let dragAnnotation = view.annotation as? DragAnnotation, let circle = mapView.overlays.first as? MKCircle, newState.rawValue == 4{
             if dragAnnotation.isOutOfBounds(from: circle){
                 alertOutBounds = true
+                // try to find an alert to work, we are missing it. 
             }
         }
         

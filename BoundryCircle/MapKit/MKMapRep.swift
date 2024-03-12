@@ -23,7 +23,7 @@ struct MKMapRep: UIViewRepresentable{
         let circle = MKCircle(center: context.coordinator.mapRegion.center, radius: 15000)
         mapView.setVisibleMapRect(circle.boundingMapRect, edgePadding: .init(top: 30, left: 50, bottom: 20, right: 50), animated: true)
         mapView.addOverlay(circle)
-        
+        // change the hardcoded sgtring to a state variable. 
         let dragAnnotation = DragAnnotation(title: "Drag Me!!!", coordinate: context.coordinator.mapRegion.center)
         mapView.addAnnotation(dragAnnotation)
             
