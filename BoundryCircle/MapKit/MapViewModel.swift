@@ -24,7 +24,8 @@ extension MapViewModel: MKMapViewDelegate {
         
         if let dragAnnotation = view.annotation as? DragAnnotation, let circle = mapView.overlays.first as? MKCircle, newState.rawValue == 4{
             if dragAnnotation.isOutOfBounds(from: circle){
-                alertOutBounds = true
+                print("out of bounds")
+                alertOutBounds = dragAnnotation.isOutOfBounds(from: circle)
                 // try to find an alert to work, we are missing it. 
             }
         }
@@ -45,7 +46,7 @@ extension MapViewModel: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is DragAnnotation {
+        if let dragAnnotation = annotation as? DragAnnotation {
             let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
             marker.markerTintColor = .orange
             marker.isDraggable = true

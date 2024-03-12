@@ -26,7 +26,7 @@ class DragAnnotation: NSObject, MKAnnotation {
     func isOutOfBounds(from circle: MKCircle) -> Bool {
         let circleLocation = CLLocation(latitude: circle.coordinate.latitude, longitude: circle.coordinate.longitude)
         
-        if location != nil {
+        if let location {
             return self.location.distance(from: circleLocation) > circle.radius
 
         }
